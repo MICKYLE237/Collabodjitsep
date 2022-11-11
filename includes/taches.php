@@ -12,9 +12,24 @@ $rows=$req->fetchAll(PDO::FETCH_ASSOC);
 //gestion du bouton ajoter
 if(isset($_POST["Ajouter"])){
 	$link_address1 = 'IHM_tache.php';
-echo "<a href='$link_address1'>Index Page</a>";
+echo "<a href='$link_address1'></a>";
 }
+
+
+//gestion du bouton suppprimer
+//if(isset($_POST['Modifier'])){
+	//session_start();
+	//if ($_GET['ID']&& !empty($_GET['ID'])){
+		//$ID = strip_tags($_GET['ID']);
+		//$sql = ("SELECT * FROM `tache` WHERE `ID_TA`= :ID'");
+	
+	//}
+//}
+
+
+
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -26,6 +41,7 @@ echo "<a href='$link_address1'>Index Page</a>";
     </head>
     <body>
 		   <form action="" method="post">
+			<form action="" method="get">
 		<marquee bgcolor="sky-blue">  BIENVENUE SUR TASK GEST -TACHES .Voici la liste des taches enregistrées !! Si vous en avez d'autres veuillez les enegistrer via les bouttons!!!</marquee> 
 		<div  class="butcol" >
 			 <input type="button" class="button" id="but_mo" value="Modifier" name="Modifier">
@@ -40,6 +56,7 @@ echo "<a href='$link_address1'>Index Page</a>";
 		    	  <thead>
 					    <h1>LISTES DES TACHES</h1>  
 					      <tr>
+							  <th></th>
 						      <th>ID</th>
 						      <th>TITRE</th>
 						      <th>NOTIFICATION</th>
@@ -52,12 +69,13 @@ echo "<a href='$link_address1'>Index Page</a>";
 			 		<?php foreach($rows as $row): ?>
         			
                 		<tr>
+							<td><input name='supprEtu' type='checkbox' value='true'/></td>
                    			<td><?= $row['ID_TA']?></td>
                     		<td><?= $row['TITRE'] ?></td>
                     		<td><?= $row['NOTIFICATION'] ?></td>
                     		<td><?= $row['DATE'] ?></td>
-							          <td><?= $row['DATE1'] ?></td>
-							          <td><?= $row['REPETER'] ?></td>
+     						<td><?= $row['DATE1'] ?></td>
+							 <td><?= $row['REPETER'] ?></td>
                     		
                 		</tr>
                  	<?php endforeach ?>

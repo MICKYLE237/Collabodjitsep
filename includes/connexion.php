@@ -1,3 +1,36 @@
+<?php
+session_start();
+// On inclut la connexion à la base
+require_once('connect.inc.php');
+
+
+
+    if((isset($_POST['email']) && !empty($_POST['email'])
+    && isset($_POST['Nom']) && !empty($_POST['Nom'])
+    && isset($_POST['password']) && !empty($_POST['password']))){
+       global $db;
+       extract($_POST);
+       $NOMUTILISATEUR = $_POST['Nom'];
+       $password=$_POST['password'];
+       $sql = ( "SELECT `Id`, `Mot_passe`FROM `utilisateur` WHERE `Nom_utilisateur`= ? ");
+       $stmt= $db->prepare($sql);
+       $stmt->bindparam(':NOM',$NOM);
+       $stmt->execute([$NOMUTILISATEUR]);
+       $stmt = $stmt->fetch();
+       
+
+      if($password = $stmt["Mot_passe"]){
+        $_SESSION['utilisateur'] = $stmt["Id"];
+        header("location: compte.php");
+        
+       } else
+       echo"les identifiants sont errones";  
+       header("location: accueil.html"); 
+       
+    }
+    
+?>
+
 <!DOCTYPE html>
 <html lang="fr" id="tout">
     <head>
@@ -11,7 +44,7 @@
         <title>Connexion</title>
     </head>
     <body id="body">
-        <form action="config.php" method="post">
+        <form action="" method="post">
             <div id="connexion">
                 
                     <input type="image" id="profile1" name="profile_photo"   src="con1.jpg"  > <br>
@@ -20,7 +53,7 @@
                     <input type="password" name="password" placeholder="Mot de passe" id="password"> <br><br> <br>
                     <button id="bt" onclick="connexion()" onclick="accueil()">Connexion</button><br><br><br><br><br><br><br>
                     <label for="text" id="text">Vous n'avez pas de compte ? </label>
-                    <a href="compte.html" id="link">Créez-en un compte</a>
+                    <a href="compte.php" id="link">Créez-en un compte</a>
                     <a href="" id="connecte">Se connecter via Facebook</a>
                     <a href="" id="connecter">Se connecter via Google</a>
                 </div>
