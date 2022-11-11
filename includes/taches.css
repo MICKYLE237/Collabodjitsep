@@ -1,0 +1,52 @@
+/* grerer les boutons ajouter ,modifier et supprimer*/
+.butcol{
+    background-color: skyblue;
+}
+.button{
+    width: 350px;
+    height: 50px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    background-color: cadetblue;
+  
+
+}
+
+*{
+    margin:0;
+    padding: 0;
+
+}
+*body{
+    color: aquamarine;
+}
+*#showcase{
+background-image: 
+url("https://s3-sa-east-1.amazonaws.com/redecredauto-blog/wp-content/uploads/2018/06/168602-analise-de-credito-do-cliente-qual-a-importancia-dessa-pratica.jpg")
+;
+height: 100vh;
+background-position: center;
+background-size: cover;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+ 
+}
+*.button{
+    font-size: 10;
+    
+   
+    padding: 14px 24px;
+    border-radius:10px;
+    margin-top: 20px;
+
+
+}
+.buttton:hover{
+    background: #926339;
+    color: #fff;
+}
+.h1{
+    align-items: center;
+}

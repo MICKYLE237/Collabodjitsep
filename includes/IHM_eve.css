@@ -1,16 +1,20 @@
 
 
-.text{background-color: #318CE7;
+.text{background-color: #31e79b;
     border-radius: 10px;
     padding: 100px;
-    width:  100%;
+    width:  100px;
     margin: 05px;
     height: auto;
 
 }
 input{
-    width: 100%;
+    width: 100px;
     height: 20px;
     border-radius: 5px;
+}
+.text{
+    width: 500px;
+    height: 700px;
 }
 
