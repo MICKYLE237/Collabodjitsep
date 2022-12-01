@@ -2,6 +2,12 @@
 
 // On inclut la connexion à la base
 require_once('connect.inc.php');
+if(isset($_GET['edit'])){
+    $id = $_GET['id'];
+    $sql = ("SELECT * FROM  `evenement` WHERE id = $id ");
+    $stmt= $db->prepare($sql);
+    $stmt->execute();
+}
 
 
 if(isset($_POST['Enregistrer'])){

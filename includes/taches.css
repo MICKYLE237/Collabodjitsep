@@ -1,13 +1,16 @@
 /* grerer les boutons ajouter ,modifier et supprimer*/
 .butcol{
     background-color: skyblue;
+   
+    
 }
 .button{
     width: 350px;
     height: 50px;
-    margin-left: 50px;
-    margin-bottom: 10px;
+    margin-left: 250px;
+    margin-bottom: 210px;
     background-color: cadetblue;
+   
   
 
 }

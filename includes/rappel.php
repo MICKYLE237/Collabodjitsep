@@ -21,9 +21,9 @@ $rows=$req->fetchAll(PDO::FETCH_ASSOC);
       <form action="" method="post">
 		  <marquee bgcolor="sky-blue">  BIENVENUE SUR TASK GEST -RAPPEL .Voici la liste des rappels enregistrées !! Si vous en avez d'autres veuillez les enegistrer via les bouttons!!!</marquee> 
 		    <div  class="butcol" >
-			    <input type="button" class="button" id="but_mo" value="Modifier">
+			    
 		      <input type="button" class="button" id="but_aj" value="Ajouter" onClick="window.open('IHM_rappel.php','main')">
-		      <input type="button" class="button" id="but_su" value="Supprimer">
+		      
 		    </div>
         <header id="showcase">
         <table border ="15px">
@@ -36,7 +36,7 @@ $rows=$req->fetchAll(PDO::FETCH_ASSOC);
 						<th>DU</th>
 						<th>AU</th>
                         <th>HEURE DU RAPPEL </th>
-					
+					    <th>ACTION</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -49,7 +49,9 @@ $rows=$req->fetchAll(PDO::FETCH_ASSOC);
                     		<td><?= $row['DATE'] ?></td>
 							<td><?= $row['DATE1'] ?></td>
 							<td><?= $row['TIME'] ?></td>
-                    		
+                    		<td><input type="button"  class="button1" id="but_sup" value="SUPPRIMER" name="SUP" onClick="window.open('pro_ta.php','main')">
+							<a href="taches.php?edit= <?php echo $row['id']; ?>" class="btn btn-danger">Editer</a>
+							</td>
                 		</tr>
                  	<?php endforeach ?>
             	</tbody>

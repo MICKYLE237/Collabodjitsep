@@ -23,9 +23,9 @@ $rows=$req->fetchAll(PDO::FETCH_ASSOC);
 		<form action="" method="post">
 		<marquee bgcolor="sky-blue">  BIENVENUE SUR TASK GEST -EVENEMENT .Voici la liste des evenement enregistrées !! Si vous en avez d'autres veuillez les enegistrer via les bouttons!!!</marquee> 
 			<div  class="butcol" >
-				<input type="button" class="button" id="but_mo" value="Modifier">
+				
 		  		<input type="button" class="button" id="but_aj"   value="Ajouter" onClick="window.open('IHM_evenement.php','main')">
-		  		<input type="button" class="button" id="but_su" value="Supprimer">
+		  		
 		  	 </div>
         <header id="showcase">
 	  		<table border ="15px">
@@ -38,7 +38,7 @@ $rows=$req->fetchAll(PDO::FETCH_ASSOC);
 						<th>LIEU</th>
 						<th>NOTIFICATION</th>
                         <th>DESCRIPTION </th>
-					
+					    <th>ACTION</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -51,6 +51,9 @@ $rows=$req->fetchAll(PDO::FETCH_ASSOC);
                     		<td><?= $row['LIEU_EV'] ?></td>
 							<td><?= $row['NOTIFICATION_EV'] ?></td>
 							<td><?= $row['DESCRIPTION_EV'] ?></td>
+							<td><input type="button"  class="button1" id="but_sup" value="SUPPRIMER" name="SUP" onClick="window.open('pro_ta.php','main')">
+							<a href="taches.php?edit= <?php echo $row['id']; ?>" class="btn btn-danger">Editer</a>
+							</td>
                     		
                 		</tr>
                  	<?php endforeach ?>
